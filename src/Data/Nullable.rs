@@ -5,6 +5,13 @@ pub struct Nullable {
     value: Option<crate::UnknownType>,
 }
 
+impl Nullable {
+    /// Reads the wrapped value, preserving a present `Nullable a` wrapper.
+    pub fn value(&self) -> Option<crate::UnknownType> {
+        self.value.clone()
+    }
+}
+
 pub fn Data_Nullable_null() -> Rc<Nullable> {
     Rc::new(Nullable { value: None })
 }
